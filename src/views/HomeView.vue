@@ -41,8 +41,9 @@ export default {
     blogs: [],
   }),
 
-  created() {
-    const config = {
+  methods: {
+    go(){
+      const config = {
       method: 'get',
       url:  this.apiDomain + '/api/v2/blog/random/4',
     }
@@ -55,6 +56,11 @@ export default {
       .catch(error => {
         console.log(error);
       });
-  }
+    }
+  },
+
+  created() {
+    this.go();
+  },
 };
 </script>
