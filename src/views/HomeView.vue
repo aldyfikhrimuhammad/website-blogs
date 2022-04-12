@@ -1,16 +1,14 @@
 <template>
-  <hello-world />
+  <div class="home">
+    <h1>This is an home page</h1>
+  </div>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
-  export default {
-    // eslint-disable-next-line vue/multi-word-component-names
-    name: 'Home',
-
-    components: {
-      HelloWorld,
-    },
-  }
+export default {
+  created() {
+    const api = "http://demo-api-vue.sanbercloud.com/api/v2/blog/random/3"
+    this.axios.get(api).then((response) => {console.log(response.data)})
+  },
+};
 </script>

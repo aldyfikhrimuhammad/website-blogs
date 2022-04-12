@@ -20,7 +20,7 @@
             <v-icon left>mdi-lock</v-icon>
             Login
           </v-btn>
-          <v-btn block color="primary" class="mb-1">
+          <v-btn block color="success" class="mb-1">
             <v-icon left>mdi-account</v-icon>
             Register
           </v-btn>
@@ -70,7 +70,7 @@
 
     <!-- Footer -->
     <v-footer app>
-      <h5>&#169; <a href="https://www.linkedin.com/in/aldyfikhrimuhammad/" target="blank"> Aldy Fikhri Muhammad</a> | 2022</h5>
+      <h5>&#169; 2022 | <a href="https://www.linkedin.com/in/aldyfikhrimuhammad/" target="blank"> Aldy Fikhri Muhammad</a></h5>
     </v-footer>
   </v-app>
 </template>
@@ -98,7 +98,7 @@ export default {
         route: "/about",
       },
     ],
-    guest: false,
+    guest: true,
   }),
 };
 </script>
