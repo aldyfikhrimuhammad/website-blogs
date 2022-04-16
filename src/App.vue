@@ -1,6 +1,10 @@
 <template>
   <!-- App.vue -->
   <v-app>
+
+    <!-- Alert -->
+    <alert></alert>
+
     <!-- Sidebar -->
     <v-navigation-drawer app v-model="drawer">
       <v-list>
@@ -16,7 +20,7 @@
 
         <!-- Guest // Ask for login or register -->
         <div class="pa-2" v-if="guest">
-          <v-btn block color="primary" class="mb-1">
+          <v-btn block color="primary" class="mb-1" @click="login">
             <v-icon left>mdi-lock</v-icon>
             Login
           </v-btn>
@@ -27,7 +31,7 @@
         </div>
 
         <v-divider></v-divider>
-        
+
         <!-- List menu on sidebar -->
         <v-list-item v-for="(item, index) in menus" :key="`menu-` + index" :to="item.route">
           <v-list-item-icon>
@@ -76,7 +80,12 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import Alert from './components/AlertView.vue';
 export default {
+  components: {
+    Alert,
+  },
   name: "App",
 
   data: () => ({
@@ -99,6 +108,35 @@ export default {
       },
     ],
     guest: true,
+    snackbarStatus: false,
+    snackbarText: "Anda berhasil login!",
   }),
+
+  methods: {
+    logout() {
+      this.guest = true;
+      this.setAlert({
+        status: true,
+        text: "Anda berhasil logout!",
+        color: "success",
+      });
+    },
+
+    login() {
+      this.guest = false;
+      this.setAlert({
+        status: true,
+        text: "Anda berhasil login!",
+        color: "success",
+      });
+    },
+
+    ...mapActions({
+      setAlert : "alert/set"}),
+  },
+
+  mounted () {
+    this.snackbarStatus = true
+  }
 };
 </script>

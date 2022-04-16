@@ -36,13 +36,10 @@
         </v-card>
       </v-flex>
     </v-layout>
-    <Button @click="increment(100)">Tambah</Button>
-    {{ count }}
   </v-container>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
 
 export default {
   data: () => ({
@@ -51,15 +48,6 @@ export default {
   }),
 
   computed: {
-    // Use Getters
-    // count() {
-    //   return this.$store.getters.count
-    // }
-
-    // Use MapGetters
-    ...mapGetters({
-      count: "counter/count",
-    }),
   },
 
   methods: {
@@ -78,16 +66,6 @@ export default {
           console.log(error);
         });
     },
-
-    // Use Mutations
-    // increment(payload) {
-    //   this.$store.commit('increment', payload)
-    // },
-
-    // Use MapMutations
-    ...mapMutations({
-      increment: "counter/increment",
-    }),
   },
 
   created() {
