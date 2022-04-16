@@ -1,12 +1,12 @@
 <template>
 <!-- Container Blogs page -->
-  <v-container class="ma-0 pa-0" grid-list-sm>
+  <v-container grid-list-sm style="margin: 0px auto;">
     <v-subheader> All Blogs </v-subheader>
-    <v-layout wrap>
+    <v-layout wrap style="padding: 5px;">
     <!-- Blog item // image & title -->
       <v-flex v-for="blog in blogs" :key="`blog-` + blog.id" xs6>
       
-        <v-card :to="`/blog/` + blog.id">
+        <v-card :to="`/blog/` + blog.id" style="margin: 10px;">
           <v-img :src="blog.photo ? apiDomain + blog.photo : 'https://picsum.photos/200/300'" class="white--text" height="200px">
             <v-card-title class="fill-height align-end" v-text="blog.title"></v-card-title>
           </v-img>
